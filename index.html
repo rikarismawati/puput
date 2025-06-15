@@ -17,30 +17,13 @@
       width: 100%;
       font-family: 'Inter', sans-serif;
       color: #fff;
-      overflow: hidden;
-    }
-
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.6);
-    }
-
-    .overlay {
-      position: relative;
-      z-index: 1;
+      background: linear-gradient(to bottom, #1f1f1f, #3b3b3b);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 30px;
-      height: 100%;
+      padding: 30px 20px 90px; /* biar ga ketutup video */
     }
 
     h1 {
@@ -72,33 +55,49 @@
       background-color: rgba(255, 255, 255, 0.3);
     }
 
+    .video-wrapper {
+      margin-top: 40px;
+      width: 250px;
+      max-width: 80%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
       p { font-size: 1rem; }
+      .video-wrapper { width: 200px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Video sebagai background -->
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="video/putri.mp4" type="video/mp4">
-    Browser kamu tidak mendukung video.
-  </video>
+  <h1>Selamat Ulang Tahun, pupuuuuuutttttt 🤍</h1>
+  <p>
+    I WISH U ALL THE BEST 🤍🤍🤍🤍🤍<br><br>
+    terimakasii sudaa hadirr dikehidupanku yang kocaakkk,<br>
+    terimakasi juga selalu mendengarkan keluh kesahkuuuu🌿<br>
+    maap selalu merepotkan, maapkan akuu yang over sharring iniii 🤍
+  </p>
+  <button class="play-music-btn" onclick="playMusic()">Putar Musik 🎵</button>
 
-  <div class="overlay">
-    <h1>Selamat Ulang Tahun, pupuuuuuutttttt 🤍</h1>
-    <p>
-      I WISH U ALL THE BEST🤍🤍🤍🤍🤍<br><br>
-      terimakasii sudaa hadirr dikehidupanku yang kocaakkk, terimakasi juga selalu mendengarkan keluh kesahkuuuu🌿 maap selalu merepotkan, maapkan akuu yang over sharring iniii🤍🤍🤍
-    </p>
-    <button class="play-music-btn" onclick="playMusic()">Putar Musik 🎵</button>
+  <div class="video-wrapper">
+    <video controls playsinline>
+      <source src="video/putri.mp4" type="video/mp4">
+      Browser kamu tidak mendukung video.
+    </video>
   </div>
 
   <audio id="bgMusic" loop>
-  <source src="music/Adrianne Lenker - anything (Lyrics)-yt.savetube.me.mp3" type="audio/mpeg">
-</audio>
-
+    <source src="music/Adrianne Lenker - anything (Lyrics)-yt.savetube.me.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     function playMusic() {
